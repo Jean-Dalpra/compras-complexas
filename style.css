@@ -6,6 +6,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+* {
+    cursor: url(./imagens/my-mouse-pointerexcre.cur), auto;
+}
+
 #container {
     background-color: #dcdcdc;
     width: 100%;
@@ -16,7 +20,7 @@ body {
 
 #produto,
 .produto {
-    height: 75vh;
+    height: 80vh;
     width: 20%;
     background: linear-gradient(to top, rgb(255, 255, 255) 50%, rgb(196, 190, 190) 50%);
     border-radius: 18px;
@@ -28,7 +32,7 @@ body {
     justify-content: space-between;
     padding: 13px;
     text-align: center;
-    margin-top: 12.5vh;
+    margin-top: 10vh;
 }
 
 .ps4 {
@@ -48,17 +52,18 @@ body {
 }
 
 button {
-    background-color: #ed0030;
+    background-color: #995200;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    cursor: url("./imagens/my-mouse-pointerexcretorpoiter.cur"), auto;
 }
 
 button:hover {
-    background-color: #995200;
+    background-color: #7c4200;
 }
 
 .listaC {
@@ -71,13 +76,13 @@ button:hover {
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     transition: right 0.5s ease;
     z-index: 1000;
-   
+
 }
- 
+
 .listaC.mostrar {
     right: 0;
 }
- 
+
 .overlay {
     position: fixed;
     top: 0;
@@ -88,7 +93,7 @@ button:hover {
     display: none;
     z-index: 999;
 }
- 
+
 .overlay.mostrar {
     display: block;
 }
@@ -107,7 +112,8 @@ button:hover {
     font-size: 28px;
     margin-left: 20px;
 }
-.header img{
+
+.header img {
     height: 85%;
     margin-top: 1.7%;
     width: 15%;
@@ -119,7 +125,7 @@ button:hover {
     color: white;
     border: none;
     background-color: #c96b00;
-    cursor: pointer;
+    cursor: url("./imagens/my-mouse-pointerexcretorpoiter.cur"), auto;
 }
 
 .item-cesta {
@@ -136,7 +142,7 @@ button:hover {
 }
 
 .item-cesta button {
-    background-color: #ed0030;
+    background-color: #995200;
     color: white;
     border: none;
     border-radius: 5px;
@@ -144,10 +150,11 @@ button:hover {
     cursor: pointer;
     font-size: 14px;
     margin-left: -10px;
+    cursor: url("./imagens/my-mouse-pointerexcretorpoiter.cur"), auto;
 }
 
 .item-cesta button:hover {
-    background-color: #c00028;
+    background-color: #743e00;
 }
 
 .img {
@@ -176,6 +183,7 @@ button:hover {
     font-size: 14px;
     margin-left: 2px;
     margin-right: -44px;
+    cursor: url("./imagens/my-mouse-pointerexcretorpoiter.cur"), auto;
 }
 
 .item-cesta .diminuir {
@@ -189,6 +197,7 @@ button:hover {
     cursor: pointer;
     font-size: 14px;
     margin-left: 1px;
+    cursor: url("./imagens/my-mouse-pointerexcretorpoiter.cur"), auto;
 }
 
 .item-cesta .aumentar:hover,
@@ -199,6 +208,7 @@ button:hover {
 .excluir {
     padding: 10px 30px;
     font-size: 45px;
+    cursor: url("./imagens/my-mouse-pointerexcretorpoiter.cur"), auto;
 }
 
 .listaC .item-cesta {
