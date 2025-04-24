@@ -1,56 +1,56 @@
 const preco = {
-    pitufina: 499.00,
-    papapitufo: 999.00,
-    pitufocat: 149.00,
-    lospitufos: -1.00
+    tralalaro: 499.00,
+    bomba: 1.00,
+    thung: 299.00,
+    crispy: 299.00
 };
  
 const produtos = [
     {
-        titulo: "Pitufet",
-        preco: preco.pitufina,
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUtSV-WaMHwQTx8NlqDaXbAJ6jCJM_MnYGUw&s"
+        titulo: "Tralalero Tralala",
+        preco: preco.tralalaro,
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaR7QmihHSl9366g0tO7v7Eax1VjmBZHPjZg&s"
     },
     {
-        titulo: "Papa Pitufo",
-        preco: preco.papapitufo,
-        imagem: "https://i.pinimg.com/736x/9e/9a/db/9e9adb6ebcbc36ee8c7fbc23a57b9e1b.jpg"
+        titulo: "Bombardino Crocodillo",
+        preco: preco.bomba,
+        imagem: "https://pbs.twimg.com/media/Gn8jTCQXAAAPkA_.jpg"
     },
     {
-        titulo: "Beautifull Pitufocat",
-        preco: preco.pitufocat,
-        imagem: "https://preview.redd.it/pfmydxl0ago41.png?auto=webp&s=20559097fcf2ad6cdb214205c9e638d4cb930198"
+        titulo: "Thung Thung Thung Sahur",
+        preco: preco.thung,
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi91db9lFwCinFYxZmouTGBMqfUtLDdKDVJw&s"
     },
     {
-        titulo: "Los Pitufos",
-        preco: preco.lospitufos,
-        imagem: "https://i.pinimg.com/originals/9f/09/88/9f0988b77aad2452092d2f12081a9a31.gif"
+        titulo: "Tralalero Crispy Snack",
+        preco: preco.crispy, // Corrigido: apenas uma definição
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXorRjVCoarsm23KvjF7U2n7m7j_tTic-evQ&s"
     }
 ];
  
-
+// Array para armazenar os produtos adicionados à cesta
 const produtosNaCesta = [];
  
-
+// Seleciona o container onde os produtos serão exibidos
 const container = document.getElementById('container');
  
-
+// Seleciona os elementos necessários
 const listaC = document.querySelector('.listaC');
 const overlay = document.querySelector('.overlay');
  
-
+// Função para mostrar o carrinho
 function mostrarCarrinho() {
     listaC.classList.add('mostrar');
     overlay.classList.add('mostrar');
 }
  
-
+// Função para ocultar o carrinho
 function ocultarCarrinho() {
     listaC.classList.remove('mostrar');
     overlay.classList.remove('mostrar');
 }
  
-
+// Função para adicionar os produtos dinamicamente ao container
 function adicionarProdutosAoContainer() {
     produtos.forEach((produto, index) => {
         const divProduto = document.createElement('div');
@@ -64,6 +64,7 @@ function adicionarProdutosAoContainer() {
         container.appendChild(divProduto);
     });
  
+    // Adiciona evento de clique aos botões "Comprar"
     const botoesComprar = document.querySelectorAll('.comprar');
     botoesComprar.forEach(botao => {
         botao.addEventListener('click', (e) => {
@@ -73,32 +74,34 @@ function adicionarProdutosAoContainer() {
     });
 }
  
+// Função para adicionar um produto à cesta
 function adicionarProdutoNaCesta(index) {
     const produto = produtos[index];
     const produtoExistente = produtosNaCesta.find(p => p.titulo === produto.titulo);
  
     if (produtoExistente) {
-        produtoExistente.quantidade += 1; 
+        produtoExistente.quantidade += 1; // Incrementa a quantidade se o produto já estiver na cesta
     } else {
-        produtosNaCesta.push({ ...produto, quantidade: 1 });
+        produtosNaCesta.push({ ...produto, quantidade: 1 }); // Adiciona o produto com quantidade inicial 1
     }
     atualizarListaC();
 }
  
-
+// Função para atualizar a exibição da listaC
 function atualizarListaC() {
     const listaC = document.querySelector('.listaC');
-
+ 
+    // Remove os itens antigos (exceto o header)
     const itensExistentes = listaC.querySelectorAll('.item-cesta');
     itensExistentes.forEach(item => item.remove());
-
  
+    // Adiciona cada produto na lista
     produtosNaCesta.forEach((produto, index) => {
         const item = document.createElement('div');
         item.classList.add('item-cesta');
         item.innerHTML = `
             <p><strong>${produto.titulo}</strong></p>
-            <p>R$ ${produto.preco.toFixed(2)}</p>
+            <p>R$ ${produto.preco.toFixed( )}</p>
             <p>
                 <button class="diminuir" data-index="${index}">-</button>
                 ${produto.quantidade}
@@ -108,7 +111,8 @@ function atualizarListaC() {
         `;
         listaC.appendChild(item);
     });
-
+ 
+    // Adiciona funcionalidade de aumentar a quantidade
     const botoesAumentar = document.querySelectorAll('.aumentar');
     botoesAumentar.forEach(botao => {
         botao.addEventListener('click', (e) => {
@@ -117,7 +121,8 @@ function atualizarListaC() {
             atualizarListaC();
         });
     });
-
+ 
+    // Adiciona funcionalidade de diminuir a quantidade
     const botoesDiminuir = document.querySelectorAll('.diminuir');
     botoesDiminuir.forEach(botao => {
         botao.addEventListener('click', (e) => {
@@ -130,19 +135,22 @@ function atualizarListaC() {
             atualizarListaC();
         });
     });
-
+ 
+    // Calcula o total dos produtos na cesta
     const precoTotal = produtosNaCesta.reduce((total, produto) => {
         return total + produto.preco * produto.quantidade;
     }, 0);
-
+ 
+    // Atualiza ou cria o elemento do total
     let totalDiv = document.querySelector('.total-preco');
     if (!totalDiv) {
         totalDiv = document.createElement('div');
         totalDiv.classList.add('total-preco');
         listaC.appendChild(totalDiv);
     }
-    totalDiv.innerHTML = `<h3 id="Total">Total: R$ ${precoTotal.toFixed(2)}</h3>`;
-
+    totalDiv.innerHTML = `<h3 id="Total">Total: R$ ${precoTotal.toFixed()}</h3>`;
+ 
+    // Adicionei a  funcionalidade de remoção
     const botoesRemover = document.querySelectorAll('.remover');
     botoesRemover.forEach(botao => {
         botao.addEventListener('click', (e) => {
@@ -152,6 +160,7 @@ function atualizarListaC() {
         });
     });
 }
+ 
  
 function adicionarEventosComprar() {
     const botoesComprar = document.querySelectorAll('.comprar');
@@ -164,8 +173,11 @@ function adicionarEventosComprar() {
     });
 }
  
+ 
 document.querySelector('.excluir').addEventListener('click', ocultarCarrinho);
 overlay.addEventListener('click', ocultarCarrinho);
  
+ 
 adicionarProdutosAoContainer();
 adicionarEventosComprar();
+ 

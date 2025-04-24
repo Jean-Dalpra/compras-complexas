@@ -16,19 +16,19 @@ body {
 
 #produto,
 .produto {
-    height: 75vh;
+    height: 65vh;
     width: 20%;
     background: linear-gradient(to top, rgb(255, 255, 255) 50%, rgb(196, 190, 190) 50%);
     border-radius: 18px;
     box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
-    margin: 20px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 13px;
     text-align: center;
-    margin-top: 12.5vh;
+    margin-top: 18.5vh;
 }
 
 .ps4 {
@@ -38,12 +38,12 @@ body {
 }
 
 .ps4titulo {
-    font-size: 28px;
+    font-size: 18px;
     margin: 10px 0;
 }
 
 .preco {
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px 0;
 }
 
@@ -58,7 +58,7 @@ button {
 }
 
 button:hover {
-    background-color: #995200;
+    background-color: #c00028;
 }
 
 .listaC {
@@ -69,7 +69,7 @@ button:hover {
     height: 100%;
     background-color: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: right 0.5s ease;
+    transition: right 1.0s ease;
     z-index: 1000;
    
 }
@@ -94,7 +94,7 @@ button:hover {
 }
 
 .header {
-    background-color: #c96b00;
+    background-color: #ed0030;
     height: 11vh;
     width: 100%;
     color: white;
@@ -105,20 +105,13 @@ button:hover {
 
 .minhaC {
     font-size: 28px;
-    margin-left: 20px;
-}
-.header img{
-    height: 85%;
-    margin-top: 1.7%;
-    width: 15%;
-    margin-left: 10px;
 }
 
 .excluir {
     font-size: 35px;
     color: white;
     border: none;
-    background-color: #c96b00;
+    background-color: #ed0030;
     cursor: pointer;
 }
 
@@ -225,5 +218,5 @@ button:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
-    background-color: #c96b00;
+    background-color: #ed0030;
 }
